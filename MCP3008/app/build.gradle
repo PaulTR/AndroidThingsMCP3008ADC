@@ -1,0 +1,18 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.paultrebilcoxruiz.mcp3008"
+        minSdkVersion 24
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+
+    provided 'com.google.android.things:androidthings:0.2-devpreview'
+}
