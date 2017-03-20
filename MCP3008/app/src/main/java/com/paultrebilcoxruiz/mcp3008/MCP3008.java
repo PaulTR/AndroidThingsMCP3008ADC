@@ -52,20 +52,32 @@ import java.io.IOException;
 
 public class MCP3008 {
 
+    private final String csPin;
+    private final String clockPin;
+    private final String mosiPin;
+    private final String misoPin;
+
     private Gpio mCsPin;
     private Gpio mClockPin;
     private Gpio mMosiPin;
     private Gpio mMisoPin;
 
-    public MCP3008(String csPin, String clockPin, String mosiPin, String misoPin) throws IOException {
+    public MCP3008(String csPin, String clockPin, String mosiPin, String misoPin) {
+        this.csPin = csPin;
+        this.clockPin = clockPin;
+        this.mosiPin = mosiPin;
+        this.misoPin = misoPin;
+    }
+
+    public void register() throws IOException {
         PeripheralManagerService service = new PeripheralManagerService();
         mClockPin = service.openGpio(clockPin);
         mCsPin = service.openGpio(csPin);
         mMosiPin = service.openGpio(mosiPin);
         mMisoPin = service.openGpio(misoPin);
 
-        mCsPin.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
         mClockPin.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
+        mCsPin.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
         mMosiPin.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW);
         mMisoPin.setDirection(Gpio.DIRECTION_IN);
     }

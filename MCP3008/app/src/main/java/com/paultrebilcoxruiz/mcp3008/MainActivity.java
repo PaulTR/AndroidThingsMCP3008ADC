@@ -81,6 +81,7 @@ public class MainActivity extends Activity {
 
         try {
             mMCP3008 = new MCP3008("BCM12", "BCM21", "BCM16", "BCM20");
+            mMCP3008.register();
         } catch( IOException e ) {
             Log.e("MCP3008", "MCP initialization exception occurred: " + e.getMessage());
         }
