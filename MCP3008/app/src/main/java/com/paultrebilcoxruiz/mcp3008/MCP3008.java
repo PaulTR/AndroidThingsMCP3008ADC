@@ -146,32 +146,32 @@ public class MCP3008 {
         if( mCsPin != null ) {
             try {
                 mCsPin.close();
-            } catch( IOException e ) {
-
+            } catch( IOException ignore ) {
+                // do nothing
             }
         }
 
         if( mClockPin != null ) {
             try {
                 mClockPin.close();
-            } catch( IOException e ) {
-
+            } catch( IOException ignore ) {
+               // do nothing
             }
         }
 
         if( mMisoPin != null ) {
             try {
                 mMisoPin.close();
-            } catch( IOException e ) {
-
+            } catch( IOException ignore ) {
+               // do nothing
             }
         }
 
         if( mMosiPin != null ) {
             try {
                 mMosiPin.close();
-            } catch( IOException e ) {
-
+            } catch( IOException ignore ) {
+               // do nothing
             }
         }
     }
